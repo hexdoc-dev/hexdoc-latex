@@ -1,0 +1,13 @@
+((* extends "pages/patchouli/text.tex.jinja" *))
+
+((* block inner_body *))
+  \subsubsection*{ ((( page.item.name ))) }
+  ((= <div class="spotlight">
+    <img
+      alt="Spotlight inventory slot"
+      src="((( 'hexcasting:textures/gui/hexdoc/spotlight.png'|hexdoc_texture )))"
+    >
+    ((( recipe_macros.render_item(page.item) )))
+  </div> =))
+  ((( super() )))
+((* endblock inner_body *))

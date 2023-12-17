@@ -1,0 +1,10 @@
+((* if page.anchor *))
+  ((= set variable to allow children to use this value too =))
+  ((* set page_anchor_id = entry.id.path ~ "@" ~ page.anchor *))
+
+  ((=- page content (not required because EmptyPage uses this template directly) =))
+  \label{sec: ((( page_anchor_id )))}
+  ((* block body scoped *))((* endblock *))
+((* else *))
+  ((( self.body() )))
+((* endif *))

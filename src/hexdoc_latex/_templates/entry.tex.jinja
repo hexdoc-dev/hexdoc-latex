@@ -1,0 +1,11 @@
+((* import "macros/formatting.tex.jinja" as fmt -*))
+
+\label{sec:((( entry.id.path )))}
+
+(((- fmt.section_header(entry, "\subsection", "entry-title") )))
+
+((* for page in entry.preprocess_pages() +*))
+  ((* include page.template~".tex.jinja" *))
+((* endfor *))
+
+\newpage

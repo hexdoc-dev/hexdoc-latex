@@ -1,0 +1,29 @@
+((* import "macros/styles.tex.jinja" as styles with context *))
+
+((= link icon in section headers to get a permalink to that section =))
+((* macro permalink(href, class_name="") -*))
+  ((= \hyperref[ sec:((( href )))]{(link)} =))
+((*- endmacro *))
+
+((= header for categories and entries =))
+((* macro section_header(value, header_tag, class_name) -*))
+  (((header_tag))){
+    (((- value.name ~ permalink(value.id.path) -)))
+  }
+((*- endmacro *))
+
+((= FormatTree handler =))
+((* macro styled(value) -*))
+  ((*- if value is string -*))
+    ((*- for line in value.splitlines() -*))
+      (((- line -)))
+      ((*- if not loop.last -*))\\((*- endif -*))
+    ((*- endfor -*))
+  ((*- elif value is not none -*))
+    ((*- call styles[value.style.macro](value.style) -*))
+      ((*- for child in value.children -*))
+        (((- styled(child) -)))
+      ((*- endfor -*))
+    ((*- endcall -*))
+  ((*- endif -*))
+((*- endmacro *))

@@ -1,0 +1,15 @@
+((* extends "pages/patchouli/page.tex.jinja" *))
+((* import "macros/formatting.tex.jinja" as fmt with context *))
+
+((* block body *))
+  ((= ((( recipe_macros.render_mindcipe(page.recipe) ))) =))
+  ((= ((( recipe_macros.generic(
+    [page.recipe],
+    "name",
+    _("hexdoc.pages.hexcasting.brainsweep.description"),
+    _("hexdoc.pages.hexcasting.brainsweep.separator"),
+  ) ))) =))
+  depicted in the book: mind flay recipe for ((( page.recipe.result.name.name )))\\
+  
+  ((( fmt.styled(page.text) )))
+((* endblock body *))

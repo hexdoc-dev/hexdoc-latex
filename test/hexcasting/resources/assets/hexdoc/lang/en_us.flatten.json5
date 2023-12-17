@@ -1,0 +1,13 @@
+{
+  hexdoc: {
+    welcome: {
+      "header": "This is the LaTeX version of the {} documentation.",
+      "bleeding_edge": "This document is built from the latest code on GitHub. \
+        It may describe $(bold)newer/$ features that you may not necessarily have, \
+        even on the latest Modrinth/CurseForge version!",
+    },
+
+    when_clicked: "(when clicked, would execute: {})",
+    tooltip: "(tooltip: {})"
+  },
+}

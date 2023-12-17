@@ -1,0 +1,61 @@
+((= CommandStyle =))
+
+((* macro command_obfuscated(style) -*))
+  ((( "-" * caller()|length )))
+((*- endmacro *))
+
+((* macro command_bold(style) -*))
+  \textbf{((( caller() )))}
+((*- endmacro *))
+
+((= TODO: implement =))
+((* macro command_strikethrough(style) -*))
+  ((( caller() )))
+((*- endmacro *))
+
+((* macro command_underline(style) -*))
+  \underline{((( caller() )))}
+((*- endmacro *))
+
+((* macro command_italic(style) -*))
+  \textit{((( caller() )))}
+((*- endmacro *))
+
+((* macro special_base(style) -*))
+  ((( caller() )))
+((*- endmacro *))
+
+((= FunctionStyle =))
+
+((* macro function_tooltip(style) -*))
+  ((( caller() ))) ((( _('hexdoc.tooltip').format(style.value) )))
+((*- endmacro *))
+
+((* macro function_cmd_click(style) -*))
+  ((( caller() ))) ((( _('hexdoc.when_clicked').format(style.value) )))
+((*- endmacro *))
+
+((* macro special_color(style) -*))
+  \textcolor[HTML]{((( style.value|latex_color )))}{((( caller() )))}
+((*- endmacro *))
+
+((= LinkStyle =))
+
+((* macro special_link(style) -*))
+  ((*- if style.external -*))
+    \href{((( style.href() )))}{((( caller() )))}
+  ((*- else -*))
+    \hyperref[sec:((( style.href().removeprefix("#") )))]{((( caller() )))}
+  ((*- endif -*))
+((*- endmacro *))
+
+((= ParagraphStyle =))
+
+((* macro paragraph_paragraph(style) -*))
+  ((( caller() )))\\
+((*- endmacro *))
+
+((= TODO: implement =))
+((* macro paragraph_list_item(style) -*))
+  ((( caller() )))
+((*- endmacro *))

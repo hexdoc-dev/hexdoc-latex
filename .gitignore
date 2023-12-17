@@ -1,3 +1,7 @@
+/*.pdf
+/*.tex
+out/
+
 # hexdoc
 _site/
 _checkout/

@@ -1,0 +1,20 @@
+((* extends "pages/patchouli/page.tex.jinja" *))
+((* import "macros/formatting.tex.jinja" as fmt with context *))
+
+((* block body *))
+  ((* if page.title is not none *))
+    ((= need title_attrs for LookupPatternPage -=))
+    \subsubsection*{
+      (((- page.title -)))
+      ((= conditionally defined in Page =))
+      ((*- if page_anchor_id is defined *))
+        ((= (((- fmt.permalink(page_anchor_id) -))) =))
+      ((* endif -*))
+    }
+  ((* endif *))
+
+  ((= within a separate block so we can control if the text goes before or after page-specific content =))
+  ((* block inner_body *))
+    ((( fmt.styled(page.text) )))
+  ((* endblock inner_body *))
+((* endblock body *))

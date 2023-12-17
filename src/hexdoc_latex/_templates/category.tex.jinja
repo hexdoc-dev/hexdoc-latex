@@ -1,0 +1,10 @@
+((* import "macros/formatting.tex.jinja" as fmt with context *))
+
+\label{sec:((( category.id.path )))}
+
+(((- fmt.section_header(category, "\section", "category-title") )))
+((( fmt.styled(category.description) )))
+
+((* for entry in category.entries.values() if entry.id not in props.entry_id_blacklist +*))
+  ((* include "entry.tex.jinja" *))
+((* endfor +*))

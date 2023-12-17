@@ -1,0 +1,9 @@
+((* extends "pages/patchouli/text.tex.jinja" *))
+
+((* block inner_body *))
+  $$ image((( " of "~page.title if page.title ))) depicted here in book $$
+  ((= ((* for image in page.images *))
+    ((( texture_macros.render_texture(page.title or "", image) )))
+  ((* endfor *)) =))
+  ((( super() )))
+((* endblock inner_body *))

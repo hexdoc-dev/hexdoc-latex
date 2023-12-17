@@ -1,0 +1,28 @@
+\documentclass[12pt]{article}
+
+\usepackage{xeCJK}
+\usepackage{hyperref}
+\usepackage{xcolor}
+
+\setcounter{secnumdepth}{0}
+
+((= \graphicspath((('(((Images/)))'))) =))
+
+%\fontsize{font size}{vertsize (usually 1.2x)}\selectfont
+
+\begin{document}
+
+((* filter replace("#", "\\#") *))
+  ((* filter replace("→", "$\\rightarrow$")*))
+    ((* include "components/welcome.tex.jinja" +*))
+    ((* include "book.tex.jinja" +*))
+  ((* endfilter *))
+((* endfilter *))
+
+\bigskip
+
+Not an official Minecraft product. Not approved by or associated with Mojang or Microsoft. \\
+Minecraft content and materials are the intellectual property of their respective owners. \\
+Made with love using \href{https://github.com/hexdoc-dev/hexdoc}{hexdoc}.
+
+\end{document}

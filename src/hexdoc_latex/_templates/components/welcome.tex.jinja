@@ -1,0 +1,8 @@
+((* import "macros/formatting.tex.jinja" as fmt with context -*))
+
+\begin{quote}
+  \section*{ ((( fmt.styled(_f("hexdoc.welcome.header")).format(mod_name) ))) }
+  ((* if is_bleeding_edge *))
+    ((( fmt.styled(_f("hexdoc.welcome.bleeding_edge")) )))\\
+  ((* endif *))
+\end{quote}

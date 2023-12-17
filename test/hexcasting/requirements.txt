@@ -1,0 +1,2 @@
+-e ../..  # hexdoc-latex
+hexdoc-hexcasting~=0.11.1.1.0rc7.dev22

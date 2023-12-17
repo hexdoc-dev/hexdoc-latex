@@ -1,0 +1,10 @@
+((* extends "pages/patchouli/text.tex.jinja" *))
+
+((* block inner_body *))
+  depicted in the book: crafting recipe for ((* for recipe in page.recipes -*))
+    (((- recipe.result.item.name -)))
+    ((*- if not loop.last *)), ((* endif -*))
+  ((*- endfor *))\\
+
+  ((( super() )))
+((* endblock inner_body *))

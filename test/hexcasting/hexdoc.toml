@@ -1,0 +1,25 @@
+modid = "hexcasting"
+book = "hexcasting:thehexbook"
+default_lang = "en_us"
+default_branch = "main"
+
+resource_dirs = [  # top takes priority
+    "resources",
+    { modid="hexcasting", external=false },
+    { modid="minecraft" },
+    { modid="hexdoc" },
+]
+
+[extra.hexcasting]
+pattern_stubs = []
+
+[template]
+include = [
+    "latex",
+]
+redirect = { "!None"=true }
+
+[template.args]
+mod_name = "Hex Casting"
+author = "petrak@, Alwinfy"
+show_landing_text = true

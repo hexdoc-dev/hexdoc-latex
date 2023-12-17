@@ -1,0 +1,16 @@
+((* extends "pages/patchouli/text.tex.jinja" *))
+
+((* block inner_body *))
+  ((* for pattern in page.patterns *))
+    ((= <canvas
+      class="spell-viz"
+      width="216"
+      height="216"
+      data-string="((( pattern.signature )))"
+      data-start="((( pattern.startdir.name.lower() )))"
+      data-per-world="((( pattern.is_per_world )))"
+    >((( _("hexdoc.pattern.not_supported").format(pattern.signature) )))</canvas> =))
+    Pattern: $((( pattern.signature )))$\\
+  ((* endfor *))
+  ((( super() )))
+((* endblock inner_body *))

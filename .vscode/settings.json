@@ -3,7 +3,7 @@
         "editor.defaultFormatter": "charliermarsh.ruff",
         "editor.formatOnSave": true,
         "editor.codeActionsOnSave": {
-            "source.organizeImports.ruff": true,
+            "source.organizeImports.ruff": "explicit"
         },
         "editor.rulers": [88],
     },
@@ -32,4 +32,5 @@
         "*.json5.jinja": "json5",
         "*.tex.jinja": "jinja-latex",
     },
+    "latex-workshop.latex.recipe.default": "latexmk (xelatex)",
 }

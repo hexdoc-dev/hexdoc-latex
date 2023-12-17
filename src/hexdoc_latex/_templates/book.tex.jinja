@@ -1,0 +1,12 @@
+((* import "macros/formatting.tex.jinja" as fmt with context *))
+
+((* if show_landing_text *))
+  \title{ ((( book.name ))) }
+  ((( fmt.styled(book.landing_text) )))\\
+((* endif *))
+
+\tableofcontents\newpage
+
+((* for category in book.categories.values() if category.entries +*))
+  ((* include "category.tex.jinja" *))
+((* endfor +*))

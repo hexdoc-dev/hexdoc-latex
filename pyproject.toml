@@ -19,12 +19,13 @@ keywords = ["hexdoc"]
 requires-python = ">=3.11"
 dynamic = ["version"]
 dependencies = [
-    "hexdoc~=1!0.1.0a5",
+    "hexdoc~=1!0.1.0a6",
 ]
 
 [optional-dependencies]
 dev = [
     "ruff~=0.1.4",
+    "nox",
 ]
 
 [project.urls]

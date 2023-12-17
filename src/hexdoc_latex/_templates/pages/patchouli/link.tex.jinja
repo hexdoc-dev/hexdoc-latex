@@ -1,0 +1,6 @@
+((* extends "pages/patchouli/text.tex.jinja" *))
+
+((* block inner_body *))
+  ((( super() )))
+  \href{((( page.url )))}{((( page.link_text )))}
+((* endblock inner_body *))
