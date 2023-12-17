@@ -19,6 +19,7 @@ on:
 
 env:
   PYPI_PACKAGE: hexdoc-latex
+  GITHUB_PAGES_URL: https://github.com/hexdoc-dev/hexdoc-latex  # lie
 
 permissions:
   contents: read
