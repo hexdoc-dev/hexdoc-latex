@@ -1,0 +1,115 @@
+[build-system]
+requires = [
+    "hatchling>=1.19.0",
+    "hatch-regex-commit",
+]
+build-backend = "hatchling.build"
+
+# project metadata
+
+[project]
+name = "hexdoc-latex"
+description = "hexdoc plugin to generate a LaTeX document for a Patchouli book."
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [
+    { name="object-Object" },
+]
+keywords = ["hexdoc"]
+requires-python = ">=3.11"
+dynamic = ["version"]
+dependencies = [
+    "hexdoc~=1!0.1.0a5",
+]
+
+[optional-dependencies]
+dev = [
+    "ruff~=0.1.4",
+]
+
+[project.urls]
+Homepage = "https://hexdoc-dev.github.io/hexdoc-latex/"
+Source = "https://github.com/hexdoc-dev/hexdoc-latex"
+
+# Gradle version/deps
+
+[tool.hatch.version]
+source = "regex_commit"
+path = "src/hexdoc_latex/__version__.py"
+commit_message = "Bump version to `{new_version}`"
+tag_message = "Bump version to `{new_version}`"
+
+# directory inclusion
+
+[tool.hatch.build]
+only-include = [
+    "src/hexdoc_latex",
+]
+artifacts = [
+    "/src/hexdoc_latex/__gradle_version__.py",
+]
+
+[tool.hatch.build.targets.wheel]
+sources = ["src"]
+
+# hexdoc entry points
+
+[project.entry-points.hexdoc]
+latex = "hexdoc_latex._hooks:LaTeXPlugin"
+
+# linting
+
+[tool.pyright]
+pythonVersion = "3.11"
+pythonPlatform = "All"
+
+include = ["src"]
+extraPaths = ["src"]
+
+typeCheckingMode = "basic"
+
+strictDictionaryInference = true
+strictListInference = true
+strictSetInference = true
+
+reportAssertAlwaysTrue = "error"
+reportConstantRedefinition = "error"
+reportDeprecated = "error"
+reportDuplicateImport = "error"
+reportFunctionMemberAccess = "error"
+reportIncompatibleMethodOverride = "error"
+reportIncompatibleVariableOverride = "error"
+reportIncompleteStub = "error"
+reportInconsistentConstructor = "error"
+reportInvalidStringEscapeSequence = "error"
+reportInvalidStubStatement = "error"
+reportInvalidTypeVarUse = "error"
+reportMatchNotExhaustive = "error"
+reportMissingParameterType = "error"
+reportMissingTypeStubs = "error"
+reportOverlappingOverload = "error"
+reportSelfClsParameterName = "error"
+reportTypeCommentUsage = "error"
+reportUnknownParameterType = "error"
+reportUnnecessaryCast = "error"
+reportUnnecessaryContains = "error"
+reportUnsupportedDunderAll = "error"
+reportUntypedBaseClass = "error"
+reportUntypedClassDecorator = "error"
+reportUntypedFunctionDecorator = "error"
+reportUntypedNamedTuple = "error"
+reportWildcardImportFromLibrary = "error"
+
+reportMissingTypeArgument = "warning"
+reportPrivateUsage = "warning"
+reportUnknownArgumentType = "warning"
+reportUnknownLambdaType = "warning"
+reportUnknownMemberType = "warning"
+reportUnknownVariableType = "warning"
+reportUnnecessaryComparison = "warning"
+reportUnnecessaryIsInstance = "warning"
+reportUnusedClass = "warning"
+reportUnusedExpression = "warning"
+reportUnusedFunction = "warning"
+reportUnusedImport = "warning"
+reportUnusedVariable = "warning"
