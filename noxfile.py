@@ -6,9 +6,16 @@ nox.options.reuse_existing_virtualenvs = True
 
 
 @nox.session
+def build(session: nox.Session):
+    session.install("-e", ".")
+
+    session.run("hexdoc", "build")
+
+
+@nox.session
 def hexcasting(session: nox.Session):
-    with session.chdir("test/hexcasting"):
-        session.install("-r", "requirements.txt")
+    session.chdir("test/hexcasting")
+    session.install("-r", "requirements.txt")
 
     session.run(
         "hexdoc",
@@ -17,5 +24,9 @@ def hexcasting(session: nox.Session):
         "build",
         "./out",
         "--branch=main",
-        "--props=test/hexcasting/hexdoc.toml",
+        env={
+            "GITHUB_REPOSITORY": "hexdoc-dev/hexdoc-latex",
+            "GITHUB_SHA": "main",
+            "GITHUB_PAGES_URL": "https://hexdoc-dev.github.io/hexdoc-latex/",
+        },
     )

@@ -1,0 +1,9 @@
+modid = "latex"
+default_lang = "en_us"
+default_branch = "main"
+
+_export_root = "src/hexdoc_latex/_export"
+resource_dirs = [
+    "resources",
+]
+export_dir = "{_export_root}/generated"

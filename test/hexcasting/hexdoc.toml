@@ -4,7 +4,7 @@ default_lang = "en_us"
 default_branch = "main"
 
 resource_dirs = [  # top takes priority
-    "resources",
+    { modid="latex" },
     { modid="hexcasting", external=false },
     { modid="minecraft" },
     { modid="hexdoc" },

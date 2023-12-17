@@ -13,6 +13,7 @@ from jinja2.sandbox import SandboxedEnvironment
 from typing_extensions import override
 
 import hexdoc_latex
+from hexdoc_latex._export import generated
 
 from .__version__ import VERSION
 
@@ -42,17 +43,11 @@ class LaTeXModPlugin(ModPlugin):
 
     @override
     def resource_dirs(self) -> HookReturn[Package]:
-        return []
+        return [generated]
 
     @override
     def jinja_template_root(self) -> tuple[Package, str]:
         return hexdoc_latex, "_templates"
-
-    @override
-    def default_rendered_templates(self) -> dict[str | Path, str]:
-        return {
-            f"{self._filename}.tex": "index.tex.jinja",
-        }
 
     @override
     def update_jinja_env(self, env: SandboxedEnvironment) -> None:
@@ -68,6 +63,12 @@ class LaTeXModPlugin(ModPlugin):
         env.variable_end_string = ")))"
         env.comment_start_string = "((="
         env.comment_end_string = "=))"
+
+    @override
+    def default_rendered_templates(self) -> dict[str | Path, str]:
+        return {
+            f"{self._filename}.tex": "index.tex.jinja",
+        }
 
     @property
     def _filename(self):
